@@ -1,6 +1,6 @@
 import express from "express";
 const app = express();
-const port = 3000;
+const port = 80;
 const cwd = process.cwd();
 
 app.use(express.static("files"));
@@ -8,7 +8,8 @@ app.use(express.static("files"));
 const staticPages = [
     "index",
     "thing",
-]
+];
+
 for (const page of staticPages) {
     app.get(`/${page}`, (req, res) => {
         res.sendFile(`html/${page}.html`, {root: cwd});

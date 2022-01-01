@@ -1,6 +1,6 @@
 import express from "express";
 const app = express();
-const port = 80;
+const port = 3000;
 const cwd = process.cwd();
 
 app.use(express.static("files"));
@@ -21,6 +21,6 @@ app.get("/", (req, res) => {
 });
 
 
-app.listen(port, () => {
+app.listen(port, "localhost", () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });

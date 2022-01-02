@@ -4,22 +4,10 @@ const port = 3000;
 const cwd = process.cwd();
 
 app.use(express.static("files"));
-
-const staticPages = [
-    "index",
-    "thing",
-];
-
-for (const page of staticPages) {
-    app.get(`/${page}`, (req, res) => {
-        res.sendFile(`html/${page}.html`, {root: cwd});
-    });
-}
-
+app.use(express.static("html", {extensions: ["html"]}));
 app.get("/", (req, res) => {
     res.sendFile("html/index.html", {root: cwd});
 });
-
 
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
